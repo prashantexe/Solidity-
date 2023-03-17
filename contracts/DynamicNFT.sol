@@ -46,6 +46,10 @@ contract SimpleMintContract is ERC721, Ownable{
         require(_exists(tokenId), "Token does not exist");
         return _tokenData[tokenId];
     }
+     function tokenData(uint256 tokenId) public view returns (string memory) {
+        require(_exists(tokenId), "Token does not exist");
+        return _tokenData[tokenId];
+    }
 
     function verifyOwnership(uint256 tokenId) external view returns (bool) {
         return _exists(tokenId) && ownerOf(tokenId) == msg.sender;
